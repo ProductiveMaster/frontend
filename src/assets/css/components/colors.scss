@@ -1,6 +1,6 @@
 $primary: #95CA3E;
 $secondary: #1C2D56;
-$tertiary: #1C2D56;
+$tertiary: #003566;
 
 $colors: ("primary": $primary,
   "secondary": $secondary,
@@ -9,7 +9,7 @@ $colors: ("primary": $primary,
 
 @each $colorName,
 $colorValue in $colors {
-  .#{$colorName} {
+  .#{$colorName}--bg {
     background: $colorValue;
   }
 

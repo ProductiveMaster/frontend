@@ -1,9 +1,10 @@
 <template><router-view /></template>
 
 <script>
-export default {};
+require("./assets/css/style.scss");
+export default {
+  methods: {
+    update() {},
+  },
+};
 </script>
-
-<style lang="scss">
-@import url("./assets/css/style.scss");
-</style>

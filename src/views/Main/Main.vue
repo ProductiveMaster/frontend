@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <div class="secondary--bg primary--text">hola</div>
+  </div>
 </template>
 
 <script>
