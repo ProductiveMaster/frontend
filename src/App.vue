@@ -1,4 +1,6 @@
-<template><router-view /></template>
+<template>
+  <router-view />
+</template>
 
 <script>
 require("./assets/css/style.scss");
@@ -8,3 +10,5 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+</style>
