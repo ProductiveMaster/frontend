@@ -1,5 +1,5 @@
 <template>
-  <div>haol</div>
+  <div></div>
 </template>
 
 <script>

@@ -1,0 +1,19 @@
+$primary: #95CA3E;
+$secondary: #1C2D56;
+$tertiary: #1C2D56;
+
+$colors: ("primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+);
+
+@each $colorName,
+$colorValue in $colors {
+  .#{$colorName} {
+    background: $colorValue;
+  }
+
+  .#{$colorName}--text {
+    color: $colorValue;
+  }
+}
