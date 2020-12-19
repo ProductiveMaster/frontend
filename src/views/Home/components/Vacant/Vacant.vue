@@ -1,5 +1,6 @@
 <template>
   <div>
+    <SearchBar />
     <Categories />
     <VacantItem />
     <Modal v-if="showCreateVacant" @close="showCreateVacant = false">
@@ -16,6 +17,7 @@
 import CreateVacant from "./components/CreateVacant";
 import VacantItem from "./components/VacantItem";
 import Categories from "./components/Categories";
+import SearchBar from "./components/SearchBar";
 import Modal from "@/components/Modal";
 export default {
   components: {
@@ -23,6 +25,7 @@ export default {
     CreateVacant,
     VacantItem,
     Categories,
+    SearchBar,
   },
   data() {
     return {

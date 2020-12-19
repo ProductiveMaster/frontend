@@ -62,7 +62,7 @@ export default {};
 }
 
 .buttons {
-  margin-top: 2rem;
+  margin-top: 0rem;
   text-align: right;
   .button {
     margin: 0 10px;
