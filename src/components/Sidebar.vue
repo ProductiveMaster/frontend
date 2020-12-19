@@ -39,6 +39,7 @@ export default {
     return {
       routes: [
         { path: "/home/perfil", name: "Perfil" },
+        { path: "/home/usuarios", name: "Usuarios" },
         { path: "/home/vacantes", name: "Vacantes" },
         { path: "/home/aplicaciones", name: "Aplicaciones" },
       ],

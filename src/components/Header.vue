@@ -5,7 +5,7 @@
     </div>
     <!--Boton para coach-->
     <div class="userName">
-      <a href="#" class="light--text">Salir</a>
+      <router-link to="/" class="light--text"> Salir</router-link>
     </div>
   </section>
 </template>
