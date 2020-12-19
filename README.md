@@ -5,7 +5,8 @@
 ## Team
 
 - Emiliano Pacheco (emipmttt@gmail.com)
-- Emiliano Pacheco (emipmttt@gmail.com)
+- Michael Alexander Espinosa Rico (maes9104@gmail.com)
+- Esaú Maximino (esa-max23@live.com)
 
 ## Project setup
 ```
