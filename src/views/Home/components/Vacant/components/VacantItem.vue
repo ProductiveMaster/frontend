@@ -31,16 +31,24 @@
       </div>
     </div>
 
-    <ApplyVacant :vacant="vacant" :viewVacant="true" />
+    <ApplyVacant
+      v-if="user.type == 'master'"
+      :vacant="vacant"
+      :viewVacant="true"
+    />
   </div>
 </template>
 
 <script>
 import ApplyVacant from "@/components/ApplyVacant";
+import { mapState } from "vuex";
 export default {
   props: ["vacant"],
   components: {
     ApplyVacant,
+  },
+  computed: {
+    ...mapState(["user"]),
   },
 };
 </script>

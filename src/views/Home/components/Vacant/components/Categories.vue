@@ -1,24 +1,24 @@
 <template>
   <div class="CategoriesContainer">
     <section class="Categories card">
-      <div class="item item1">
-        <a href="#">Frontend</a>
-      </div>
-      <div class="item item2">
-        <a href="#">Backend</a>
-      </div>
-      <div class="item item4">
-        <a href="#">DevOps</a>
-      </div>
-      <div class="item item3">
-        <a href="#">Full Stack</a>
-      </div>
-      <div class="item item5">
-        <a href="#">Data Science</a>
-      </div>
-      <div class="item item6">
-        <a href="#">UI/UX</a>
-      </div>
+      <a @click="$emit('updateCategory', 'Frontend')">
+        <div class="item item1">Frontend</div>
+      </a>
+      <a @click="$emit('updateCategory', 'Backend')">
+        <div class="item item2">Backend</div>
+      </a>
+      <a @click="$emit('updateCategory', 'DevOps')">
+        <div class="item item4">DevOps</div>
+      </a>
+      <a @click="$emit('updateCategory', 'Full Stack')">
+        <div class="item item3">Full Stack</div>
+      </a>
+      <a @click="$emit('updateCategory', 'Data Science')">
+        <div class="item item5">Data Science</div>
+      </a>
+      <a @click="$emit('updateCategory', 'UI/UX')">
+        <div class="item item6">UI/UX</div>
+      </a>
     </section>
   </div>
 </template>

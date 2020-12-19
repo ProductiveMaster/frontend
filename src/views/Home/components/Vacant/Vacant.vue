@@ -1,7 +1,14 @@
 <template>
   <div>
-    <SearchBar />
-    <Categories />
+    <SearchBar
+      :category="category"
+      @updateVacants="
+        vacants = $event;
+        isSearch = true;
+      "
+      @getVacants="getVacantsMethod"
+    />
+    <Categories @updateCategory="category = $event" />
     <Modal v-if="showCreateVacant" @close="showCreateVacant = false">
       <CreateVacant
         @getVacants="getVacantsMethod"
@@ -15,12 +22,19 @@
     >
       +
     </div>
-    <div>
+    <div v-if="vacants.length">
       <VacantItem
         :vacant="vacant"
         v-for="vacant in vacants"
         :key="vacant._id"
       />
+
+      <div v-if="currentPage < maxPages && !isSearch" class="text-center">
+        <button @click="next" class="button">Mostrar Más</button>
+      </div>
+    </div>
+    <div v-else>
+      <div class="text-center">No pudimos encontrar resultados</div>
     </div>
   </div>
 </template>
@@ -47,6 +61,11 @@ export default {
     return {
       showCreateVacant: false,
       vacants: [],
+      currentPage: 2,
+      maxPages: 0,
+      category: "",
+
+      isSearch: false,
     };
   },
   computed: {
@@ -58,6 +77,21 @@ export default {
       const vacantsQuery = await api.get("jobOffers");
 
       this.vacants = vacantsQuery.data.body.offers;
+      this.maxPages = vacantsQuery.data.body.totalPages;
+      this.currentPage = vacantsQuery.data.body.currentPage;
+      this.isSearch = false;
+    },
+    async next() {
+      const vacantsQuery = await api.get("jobOffers", {
+        params: {
+          page: this.currentPage + 1,
+        },
+      });
+
+      this.vacants = [...this.vacants, ...vacantsQuery.data.body.offers];
+      this.maxPages = vacantsQuery.data.body.totalPages;
+      this.currentPage = vacantsQuery.data.body.currentPage;
+      this.isSearch = false;
     },
   },
   async mounted() {
