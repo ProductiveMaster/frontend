@@ -1,0 +1,15 @@
+@import './colors.scss';
+
+.input {
+  padding: 10px 20px;
+  background: $secondary;
+  border-radius: 5px;
+  color: white;
+  box-sizing: border-box;
+  width: 90%;
+  margin-top: 10px
+}
+
+.input::placeholder {
+  color: $clear-text
+}
