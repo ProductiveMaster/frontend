@@ -1,10 +1,14 @@
 <template>
   <section class="tertiary--bg sidebar">
-    <div v-for="route in routes" :key="route.path" class="sidebarOption active">
-      <router-link :to="route.path">
+    <router-link v-for="route in routes" :key="route.path" :to="route.path">
+      <div
+        class="sidebarOption"
+        :class="{ active: $route.path.includes(route.path) }"
+      >
         <p class="light--text">{{ route.name }}</p>
-      </router-link>
-    </div>
+      </div>
+    </router-link>
+
     <!-- 
     <div class="sidebarOption active">
       <a href="#">
@@ -35,6 +39,7 @@ export default {
     return {
       routes: [
         { path: "/home/perfil", name: "Perfil" },
+        { path: "/home/usuarios", name: "Usuarios" },
         { path: "/home/vacantes", name: "Vacantes" },
         { path: "/home/aplicaciones", name: "Aplicaciones" },
       ],

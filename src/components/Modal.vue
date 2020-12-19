@@ -1,6 +1,12 @@
 <template>
   <div class="backdrop-modal">
-    <div class="modal-content"><slot></slot></div>
+    <div class="modal-content">
+      <button @click="$emit('close')" class="modal-content__close tertiary--bg">
+        x
+      </button>
+
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -8,7 +14,7 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
 .backdrop-modal {
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -25,5 +31,15 @@ export default {};
 
 .modal-content {
   max-height: 90vh;
+
+  &__close {
+    padding: 5px 12px 8px;
+    border-radius: 50px;
+    border: solid 2px white;
+    float: right;
+    margin-right: -10px;
+    margin-top: -10px;
+    font-weight: bold;
+  }
 }
 </style>

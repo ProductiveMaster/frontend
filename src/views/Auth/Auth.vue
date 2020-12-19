@@ -8,12 +8,14 @@
 
         <form v-if="issignin">
           <input
+            v-model="email"
             required
             class="input"
             type="email"
             placeholder="Correo Electrónico"
           />
           <input
+            v-model="password"
             required
             class="input"
             placeholder="Contraseña"
@@ -27,25 +29,39 @@
             <button class="button clear">Regístrate</button>
           </router-link>
         </form>
-        <form @submit.prevent="signup" v-else>
-          <input required class="input" type="text" placeholder="Nombre" />
-
-          <input required class="input" type="text" placeholder="Apellido" />
+        <form @submit.prevent="signupMethod" v-else>
           <input
+            v-model="name"
+            required
+            class="input"
+            type="text"
+            placeholder="Nombre"
+          />
+
+          <input
+            v-model="lastname"
+            required
+            class="input"
+            type="text"
+            placeholder="Apellido"
+          />
+          <input
+            v-model="email"
             required
             class="input"
             type="email"
             placeholder="Correo Electrónico"
           />
 
-          <select required class="input" placeholder="Genero">
-            <option value="0">Seleccionar</option>
-            <option value="1">Mujer</option>
-            <option value="2">Hombre</option>
-            <option value="3">Otro</option>
+          <select v-model="gender" required class="input" placeholder="Genero">
+            <option value="Indefinido">Seleccionar</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Otro">Otro</option>
           </select>
 
           <input
+            v-model="birthDate"
             required
             class="input"
             placeholder="Fecha de Nacimiento"
@@ -53,12 +69,14 @@
           />
 
           <input
+            v-model="password"
             required
             class="input"
             placeholder="Contraseña"
             type="password"
           />
           <input
+            v-model="passwordConfirm"
             required
             class="input"
             placeholder="Confirmar Contraseña"
@@ -87,7 +105,7 @@ export default {
       name: "",
       lastname: "",
       email: "",
-      gender: "",
+      gender: "Indefinido",
       birthDate: "",
       password: "",
       passwordConfirm: "",
@@ -102,6 +120,10 @@ export default {
   methods: {
     ...mapActions(["signup"]),
     async signupMethod() {
+      if (this.password != this.passwordConfirm) {
+        return this.$toast.open("Ambas Contraseñas deben coincidir");
+      }
+
       const signupQuery = await this.signup({
         name: this.name,
         lastname: this.lastname,
@@ -113,10 +135,11 @@ export default {
         imgPath: this.imgPath,
       });
 
-      if (signupQuery) {
-        this.$toast.open("Bienvenido");
-        this.$router.push("/home");
-      }
+      console.log(signupQuery);
+
+      // if (!signupQuery.data.data.error) {
+      this.$toast.open("Bienvenido");
+      this.$router.push("/home");
     },
     async signinMethod() {
       const signupQuery = await this.signup({
@@ -124,7 +147,7 @@ export default {
         password: this.password,
       });
 
-      if (signupQuery) {
+      if (!signupQuery.data.data.error) {
         this.$toast.open("Bienvenido");
         this.$router.push("/home");
       }

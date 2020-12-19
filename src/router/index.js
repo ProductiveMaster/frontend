@@ -9,6 +9,7 @@ import Auth from '../views/Auth/Auth';
 import Home from "../views/Home/Home"
 import Vacant from "../views/Home/components/Vacant/Vacant"
 import Applications from "../views/Home/components/Applications/Applications"
+import Users from "../views/Home/components/Users/Users"
 
 
 Vue.use(VueRouter);
@@ -37,6 +38,10 @@ const routes = [{
       {
         path: 'aplicaciones',
         component: Applications,
+      },
+      {
+        path: 'usuarios',
+        component: Users,
       }
     ]
   },

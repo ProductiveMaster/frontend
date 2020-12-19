@@ -1,8 +1,7 @@
 <template>
   <div>
-    <Modal v-if="showCreateVacant">
+    <Modal v-if="showCreateVacant" @close="showCreateVacant = false">
       <CreateVacant />
-      <button @click="showCreateVacant = false" class="button">Salir</button>
     </Modal>
     <div @click="showCreateVacant = true" class="fab">+</div>
   </div>
