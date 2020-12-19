@@ -4,24 +4,19 @@
   padding: 10px 40px;
   background: $primary;
   border-radius: 3px;
-  box-shadow: 2px 2px 5px 0.1px rgba(255, 255, 255);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, .2);
   text-transform: uppercase;
   font-weight: bold;
-<<<<<<< HEAD
-  color: #000;
-}
-=======
   color: #333;
   margin-top: 10px;
 }
 
-.button--clear {
-  padding: 10px 40px;
-  background: none;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: white;
-  margin-top: 10px;
+.button.light-shadow {
+  box-shadow: 2px 2px 5px 0.1px $light;
 }
->>>>>>> 6730e7c60fd8cb274477012e158bc943e36ede8b
+
+.button.clear {
+  background: none;
+  color: white;
+  box-shadow: none;
+}

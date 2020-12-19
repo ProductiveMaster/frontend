@@ -23,7 +23,7 @@
           <button class="button">Iniciar Sesión</button>
           <br />
           <router-link to="/registro">
-            <button class="button--clear">Regístrate</button>
+            <button class="button clear">Regístrate</button>
           </router-link>
         </form>
         <form v-else>
@@ -56,7 +56,7 @@
           <button class="button">Regístrate</button>
           <br />
           <router-link to="/iniciar-sesion">
-            <button class="button--clear">Inciar Sesión</button>
+            <button class="button clear">Inciar Sesión</button>
           </router-link>
         </form>
       </div>

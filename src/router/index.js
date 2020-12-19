@@ -1,14 +1,18 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
+// routes
 import Main from '../views/Main/Main.vue';
 import Auth from '../views/Auth/Auth';
-import Header from '../components/Header.vue';
-import Sidebar from '../components/Sidebar.vue';
+
+
+import Home from "../views/Home/Home"
+import Vacant from "../views/Home/components/Vacant/Vacant"
+
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     component: Main,
   },
@@ -23,9 +27,12 @@ const routes = [
     component: Auth,
   },
   {
-    path: '/prueba',
-    name: 'prueba',
-    component: Sidebar,
+    path: '/home',
+    component: Home,
+    children: [{
+      path: 'vacantes',
+      component: Vacant,
+    }]
   },
 ];
 

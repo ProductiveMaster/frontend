@@ -3,7 +3,7 @@
 </template>
 
 <script>
-require("./assets/css/style.scss");
+require("@/assets/css/style.scss");
 export default {
   methods: {
     update() {},
