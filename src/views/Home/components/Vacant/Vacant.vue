@@ -1,12 +1,12 @@
 <template>
   <div>
+    <Categories />
     <VacantItem />
     <Modal v-if="showCreateVacant" @close="showCreateVacant = false">
       <CreateVacant />
     </Modal>
     <div @click="showCreateVacant = true" class="fab">+</div>
     <div>
-      <Categories />
       <VacanteItem />
     </div>
   </div>

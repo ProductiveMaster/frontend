@@ -1,25 +1,27 @@
 <template>
-  <section class="Categories secondary--bg">
-    <span>Categorias</span>
-    <div class="item item1">
-      <a href="#">Frontend</a>
-    </div>
-    <div class="item item2">
-      <a href="#">Backend</a>
-    </div>
-    <div class="item item3">
-      <a href="#">Full Stack</a>
-    </div>
-    <div class="item item4">
-      <a href="#">DevOps</a>
-    </div>
-    <div class="item item5">
-      <a href="#">Data Science</a>
-    </div>
-    <div class="item item6">
-      <a href="#">UI/UX</a>
-    </div>
-  </section>
+  <div class="CategoriesContainer">
+    <span class="CategoriesContainer--title">Categorias</span>
+    <section class="Categories card">
+      <div class="item item1">
+        <a href="#">Frontend</a>
+      </div>
+      <div class="item item2">
+        <a href="#">Backend</a>
+      </div>
+      <div class="item item4">
+        <a href="#">DevOps</a>
+      </div>
+      <div class="item item3">
+        <a href="#">Full Stack</a>
+      </div>
+      <div class="item item5">
+        <a href="#">Data Science</a>
+      </div>
+      <div class="item item6">
+        <a href="#">UI/UX</a>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -27,25 +29,32 @@ export default {};
 </script>
 
 <style lang="scss">
+.CategoriesContainer{
+  margin-bottom: 1em;
+  &--title{
+    font-size: 1.5em;
+  }
+}
 .Categories {
-  /* background: #002b53; */
   color: white;
-  width: 200px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  // justify-content: space-around;
   text-align: center;
-  padding: 0 1em;
+  padding: 1em;
   border-radius: 5px;
+  margin-top: .5em;
 }
 
 .item {
-  padding: 0.5em 0;
+  padding: .5em 1em;
   border: 1px solid white;
   border-radius: 5px;
   font-weight: bold;
-  & a {
+  display: flex;
+  align-items: center;
+  a {
     color: #000;
     text-decoration: none;
   }
@@ -68,5 +77,14 @@ export default {};
 }
 .item6 {
   background: #bba1ff;
+}
+// 1084
+
+// @media (max-width: 750px){
+@media (max-width: 1063px){
+  .Categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }
 </style>
