@@ -22,12 +22,14 @@ export default {};
 </script>
 
 <style lang="scss">
-.main {
-  height: 100vh;
-  display: grid;
-  align-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr;
+  .main {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    margin: auto;
+    gap: 10px;
+  }
   .left {
     padding: 0 2em;
     margin: auto;
@@ -45,5 +47,27 @@ export default {};
       margin: 1em 1em 1em 0em;
     }
   }
-}
+  .right{
+    width: 100%;
+    padding: 0 2em;
+    img {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1140px){
+    .main .left h1 {
+      font-size: 4em;
+    }
+  }
+  @media (max-width: 768px){
+    .main .left h1 {
+      font-size: 3em;
+    }
+    .left h3 {
+      font-size: 2em;
+    }
+    .left p {
+      font-size: 1.5em;
+    }
+  }
 </style>
