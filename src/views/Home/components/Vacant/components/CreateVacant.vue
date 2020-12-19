@@ -55,10 +55,14 @@
           </p>
           <p>
             <label for="">Modalidad de trabajo</label>
-            <input class="input" type="text" placeholder="Remoto" />
+              <select name="select" class="input">
+              <option value="Remoto" selected>Remoto</option>
+              <option value="Presencial">Presensial</option>
+              <option value="Mixto">Mixto</option>
+            </select>
           </p>
           <p>
-            <label for="">Pais</label>
+            <label for="">País</label>
             <input class="input" type="text" placeholder="México" />
           </p>
           <p>
@@ -67,7 +71,14 @@
           </p>
           <p>
             <label for="">Categoria</label>
-            <input class="input" type="text" placeholder="Full Stack" />
+            <select name="select" class="input">
+              <option value="Frontend" selected>Frontend</option>
+              <option value="Backend" >Backend</option>
+              <option value="Full Stack">Full Stack</option>
+              <option value="DevOps">DevOps</option>
+              <option value="Data Science">Data Science</option>
+              <option value="UI/UX">UI/UX</option>
+            </select>
           </p>
           <p>
             <label for="">Nivel</label>
