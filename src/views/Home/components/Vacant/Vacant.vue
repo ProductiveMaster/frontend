@@ -1,9 +1,18 @@
 <template>
-  <div>Hola son vacantes</div>
+  <div>
+    <CreateVacant />
+
+    <div class="fab">+</div>
+  </div>
 </template>
 
 <script>
-export default {};
+import CreateVacant from "./components/CreateVacant";
+export default {
+  components: {
+    CreateVacant,
+  },
+};
 </script>
 
 <style>

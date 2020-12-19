@@ -7,7 +7,9 @@
         Aquí puedes encontrar la vacante <br />
         que tanto estabas buscando
       </p>
-      <button class="button light-shadow">Buscar Vacante</button>
+      <router-link to="/registro">
+        <button class="button light-shadow">Buscar Vacantes</button>
+      </router-link>
     </article>
     <article class="right">
       <img src="../../assets/home.svg" alt="Imagen" />
