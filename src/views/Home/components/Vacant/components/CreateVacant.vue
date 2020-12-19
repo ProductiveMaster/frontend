@@ -4,14 +4,14 @@
       <h1>Completa el formulario para crear una vacante</h1>
       <div class="form">
         <form action="">
-          <p>
+          <div>
             <label for="">Nombre del puesto</label>
             <input
               class="input"
               type="text"
               placeholder="Full Satck Developer"
             />
-          </p>
+          </div>
           <p>
             <label for="">Compañia</label>
             <input class="input" type="text" placeholder="Globant" />
@@ -55,7 +55,7 @@
           </p>
           <p>
             <label for="">Modalidad de trabajo</label>
-              <select name="select" class="input">
+            <select name="select" class="input">
               <option value="Remoto" selected>Remoto</option>
               <option value="Presencial">Presensial</option>
               <option value="Mixto">Mixto</option>
@@ -73,7 +73,7 @@
             <label for="">Categoria</label>
             <select name="select" class="input">
               <option value="Frontend" selected>Frontend</option>
-              <option value="Backend" >Backend</option>
+              <option value="Backend">Backend</option>
               <option value="Full Stack">Full Stack</option>
               <option value="DevOps">DevOps</option>
               <option value="Data Science">Data Science</option>

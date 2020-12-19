@@ -1,5 +1,6 @@
 <template>
   <div>
+    <VacantItem />
     <Modal v-if="showCreateVacant" @close="showCreateVacant = false">
       <CreateVacant />
     </Modal>
@@ -9,11 +10,13 @@
 
 <script>
 import CreateVacant from "./components/CreateVacant";
+import VacantItem from "./components/VacantItem";
 import Modal from "@/components/Modal";
 export default {
   components: {
-    CreateVacant,
     Modal,
+    CreateVacant,
+    VacantItem,
   },
   data() {
     return {

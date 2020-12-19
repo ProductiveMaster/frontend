@@ -1,44 +1,62 @@
 <template>
-  <article class="VacantItem secondary--bg">
-      <div class="items">
-        <p class="job">Frontend Developer</p>
-        <p class="time">Full Time</p>
-        <p class="company">Globant</p>
-        <p class="modality">Remoto</p>
-        <p class="country">Colombia</p>
-      </div>
-      <div class="buttons">
-        <button>Practicar</button>
-        <button>Aplicar</button>
-      </div>
-    </article>
+  <article class="card VacantItem tertiary--bg">
+    <strong class="job">Frontend Developer</strong>
+    <div class="items">
+      <span class="time"
+        >Empresa: <br />
+        Globant</span
+      >
+      <span class="company"
+        >Salario: <br />
+        1500 - 2000</span
+      >
+      <span class="modality"
+        >Modalidad: <br />
+        Remoto</span
+      >
+
+      <span class="modality"
+        >Ubicación: <br />
+        Colombia - Bogotá</span
+      >
+
+      <span class="modality"
+        >Categoría: <br />
+        Frontend</span
+      >
+    </div>
+    <div class="buttons">
+      <button class="button clear">Practicar</button>
+      <button class="button">Aplicar</button>
+    </div>
+  </article>
 </template>
 
 <script>
-export default {
-}
+export default {};
 </script>
 
 <style lang="scss">
-  .VacantItem {
-    background: gold;
-    width: 500px;
-    border-radius: 5px;
-    padding: 1.2em;
+.VacantItem {
+  border-radius: 5px;
+  padding: 1.2em;
+}
+.items {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-between;
+  & span {
+    font-size: 1.2rem;
+    padding: 10px;
   }
-  .items {
-    display: flex;
-    justify-content: space-around;
-    & p{
-      font-size: 1.2em;
-    }
-  }
+}
 
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
-    & .button {
-      margin: 0 10px;
-    }
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  & .button {
+    margin: 0 10px;
   }
+}
 </style>
