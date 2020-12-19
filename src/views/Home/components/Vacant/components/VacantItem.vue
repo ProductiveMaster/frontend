@@ -1,35 +1,36 @@
 <template>
-  <article class="card VacantItem tertiary--bg">
-    <strong class="job">Frontend Developer</strong>
-    <div class="items">
-      <div class="time">
-        Empresa: <br />
-        Globant
-      </div>
-      <div class="company">
-        Salario: <br />
-        1500 - 2000
-      </div>
-      <div class="modality">
-        Modalidad: <br />
-        Remoto
-      </div>
+  <div class="card card-padding">
+    <strong> Frontend Developer </strong>
+    <table class="VacantItem">
+      <thead class="items">
+        <tr>
+          <th>Empresa</th>
+          <th>Salario</th>
+          <th>Categoría</th>
+          <th>Nivel</th>
+          <th>Modalidad</th>
+        </tr>
+        <!-- <span class="job">Frontend Developer</span>
+        <span class="time">Full Time</span>
+        <span class="company">Globant</span>
+        <span class="modality">Remoto</span>
+        <span class="country">Colombia</span> -->
+      </thead>
+      <tbody>
+        <tr>
+          <td>Globant</td>
+          <td>Full Time</td>
+          <td>Globant</td>
+          <td>Remoto</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div class="modality">
-        Ubicación: <br />
-        Colombia - Bogotá
-      </div>
-
-      <div class="modality">
-        Categoría: <br />
-        Frontend
-      </div>
-    </div>
     <div class="buttons">
       <button class="button clear">Practicar</button>
       <button class="button">Aplicar</button>
     </div>
-  </article>
+  </div>
 </template>
 
 <script>
@@ -37,25 +38,33 @@ export default {};
 </script>
 
 <style lang="scss">
+.card-padding {
+  padding: 2rem;
+}
+
 .VacantItem {
-  border-radius: 5px;
+  width: 100%;
   padding: 1.2em;
 }
 .items {
-  margin-top: 2rem;
-  justify-content: space-between;
-
-  & div {
-    font-size: 1.2rem;
+  justify-content: space-around;
+  margin-bottom: 1em;
+  span {
+    font-size: 1.2em;
+  }
+  th {
+    text-align: left;
+  }
+  td {
     padding: 10px;
-    display: inline-block;
+    font-size: 1.2em;
   }
 }
 
 .buttons {
   margin-top: 2rem;
-  justify-content: flex-end;
-  & .button {
+  text-align: right;
+  .button {
     margin: 0 10px;
   }
 }
