@@ -21,21 +21,47 @@ export default new Vuex.Store({
     async signup({
       commit
     }, userData) {
-      const userQuery = await api.post('auth', {
-        userData
-      })
+      try {
+        const userQuery = await api.post('auth/sign-up', {
+          userData
+        })
 
-      console.log(userQuery);
+        console.log(userQuery);
 
 
-      commit('updateState', {
-        prop: "user",
-        value: {}
-      })
+        commit('updateState', {
+          prop: "user",
+          value: {}
+        })
+
+        return true
+      } catch (error) {
+        console.error(error)
+        return false
+      }
     },
-    signin() {
+    async signin({
+      commit
+    }, userData) {
+      try {
+        const userQuery = await api.post('auth/sign-in', {
+          userData
+        })
 
-    }
+        console.log(userQuery);
+
+
+        commit('updateState', {
+          prop: "user",
+          value: {}
+        })
+
+        return true
+      } catch (error) {
+        console.error(error)
+        return false
+      }
+    },
   },
   modules: {}
 })

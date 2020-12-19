@@ -27,19 +27,31 @@
             <button class="button clear">Regístrate</button>
           </router-link>
         </form>
-        <form v-else>
-          <input
-            required
-            class="input"
-            type="text"
-            placeholder="Nombre Completo"
-          />
+        <form @submit.prevent="signup" v-else>
+          <input required class="input" type="text" placeholder="Nombre" />
+
+          <input required class="input" type="text" placeholder="Apellido" />
           <input
             required
             class="input"
             type="email"
             placeholder="Correo Electrónico"
           />
+
+          <select required class="input" placeholder="Genero">
+            <option value="0">Seleccionar</option>
+            <option value="1">Mujer</option>
+            <option value="2">Hombre</option>
+            <option value="3">Otro</option>
+          </select>
+
+          <input
+            required
+            class="input"
+            placeholder="Fecha de Nacimiento"
+            type="date"
+          />
+
           <input
             required
             class="input"
@@ -54,7 +66,7 @@
           />
           <br />
           <br />
-          <button class="button">Regístrate</button>
+          <button type="submit" class="button">Regístrate</button>
           <br />
           <router-link to="/iniciar-sesion">
             <button class="button clear">Inciar Sesión</button>
@@ -67,13 +79,55 @@
 
 <script>
 require("@/assets/css/style.scss");
+import { mapActions } from "vuex";
+
 export default {
   data() {
-    return {};
+    return {
+      name: "",
+      lastname: "",
+      email: "",
+      gender: "",
+      birthDate: "",
+      password: "",
+      passwordConfirm: "",
+      imgPath: "",
+    };
   },
   computed: {
     issignin() {
       return this.$route.name == "signin";
+    },
+  },
+  methods: {
+    ...mapActions(["signup"]),
+    async signupMethod() {
+      const signupQuery = await this.signup({
+        name: this.name,
+        lastname: this.lastname,
+        email: this.email,
+        gender: this.gender,
+        birthDate: this.birthDate,
+        password: this.password,
+        passwordConfirm: this.passwordConfirm,
+        imgPath: this.imgPath,
+      });
+
+      if (signupQuery) {
+        this.$toast.open("Bienvenido");
+        this.$router.push("/home");
+      }
+    },
+    async signinMethod() {
+      const signupQuery = await this.signup({
+        email: this.email,
+        password: this.password,
+      });
+
+      if (signupQuery) {
+        this.$toast.open("Bienvenido");
+        this.$router.push("/home");
+      }
     },
   },
 };
