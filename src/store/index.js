@@ -25,9 +25,9 @@ export default new Vuex.Store({
       commit
     }, userData) {
       try {
-        const userQuery = await api.post('auth/sign-up', {
+        const userQuery = await api.post('auth/sign-up',
           userData
-        })
+        )
 
         console.log(userQuery);
 
@@ -47,19 +47,25 @@ export default new Vuex.Store({
       commit
     }, userData) {
       try {
-        const userQuery = await api.post('auth/sign-in', {
-          userData
+        const userQuery = await api.post('auth/sign-in', {}, {
+          auth: {
+            username: userData.email,
+            password: userData.password
+          }
         })
 
         console.log(userQuery);
 
+        if (!userQuery.data.error) {
+          commit('updateState', {
+            prop: "user",
+            value: userQuery.data.body.user
+          })
 
-        commit('updateState', {
-          prop: "user",
-          value: {}
-        })
+          return true
+        }
 
-        return true
+
       } catch (error) {
         console.error(error)
         return false

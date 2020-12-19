@@ -5,7 +5,12 @@
     </div>
     <!--Boton para coach-->
     <div class="userName">
-      <router-link to="/" class="light--text"> Salir</router-link>
+      <router-link to="/" class="light--text">
+        <img
+          class="exit-button"
+          :src="require('@/assets/img/icons/exit.svg')"
+          alt=""
+      /></router-link>
     </div>
   </section>
 </template>
@@ -39,5 +44,9 @@ export default {};
       font-size: 1.5em;
     }
   }
+}
+
+.exit-button {
+  width: 30px;
 }
 </style>

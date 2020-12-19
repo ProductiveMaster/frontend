@@ -6,7 +6,7 @@
         <h1>{{ issignin ? "Iniciar Sesión" : "Regístrate" }}</h1>
         <p>Para acceder a la plataforma</p>
 
-        <form v-if="issignin">
+        <form @submit.prevent="signinMethod" v-if="issignin">
           <input
             v-model="email"
             required
@@ -23,7 +23,7 @@
           />
           <br />
           <br />
-          <button class="button">Iniciar Sesión</button>
+          <button type="submit" class="button">Iniciar Sesión</button>
           <br />
           <router-link to="/registro">
             <button class="button clear">Regístrate</button>
@@ -91,6 +91,8 @@
           </router-link>
         </form>
       </div>
+      <br />
+      <br />
     </div>
   </div>
 </template>
@@ -118,7 +120,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["signup"]),
+    ...mapActions(["signup", "signin"]),
     async signupMethod() {
       if (this.password != this.passwordConfirm) {
         return this.$toast.open("Ambas Contraseñas deben coincidir");
@@ -138,19 +140,17 @@ export default {
       console.log(signupQuery);
 
       // if (!signupQuery.data.data.error) {
-      this.$toast.open("Bienvenido");
-      this.$router.push("/home");
+      // this.$toast.open("Bienvenido");
+      // this.$router.push("/home");
     },
     async signinMethod() {
-      const signupQuery = await this.signup({
+      const signupQuery = await this.signin({
         email: this.email,
         password: this.password,
       });
 
-      if (!signupQuery.data.data.error) {
-        this.$toast.open("Bienvenido");
-        this.$router.push("/home");
-      }
+      // this.$toast.open("Bienvenido");
+      // this.$router.push("/home");
     },
   },
 };
@@ -158,7 +158,7 @@ export default {
 
 <style lang="scss" scoped>
 .login-content {
-  padding: 5% 5% !important;
+  padding: 2% 5% !important;
   max-width: 500px;
   margin: 0 auto;
 }

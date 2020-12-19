@@ -58,14 +58,14 @@ export default {
   transition: 0.5s;
 
   .sidebarOption {
-    padding: 15px 0;
-    width: 80%;
+    padding: 10px;
+    width: 95%;
+    margin: auto;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid white;
-    margin: auto;
     cursor: pointer;
-
+    transition: 0.2s;
+    border-radius: 5px;
     a {
       text-decoration: none;
       p {
@@ -75,7 +75,8 @@ export default {
   }
 
   .sidebarOption.active {
-    border-bottom: 2px solid #95ca3e;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.2s;
   }
 }
 
