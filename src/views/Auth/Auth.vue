@@ -69,6 +69,14 @@
           />
 
           <input
+            v-model="skills"
+            required
+            class="input"
+            placeholder="Habilidades (separadas por comas)"
+            type="text"
+          />
+
+          <input
             v-model="password"
             required
             class="input"
@@ -112,6 +120,7 @@ export default {
       password: "",
       passwordConfirm: "",
       imgPath: "",
+      skills: "",
     };
   },
   computed: {
@@ -138,6 +147,7 @@ export default {
         password: this.password,
         passwordConfirm: this.passwordConfirm,
         imgPath: this.imgPath,
+        skills: this.skills.split(","),
       });
 
       if (signupQuery.success) {

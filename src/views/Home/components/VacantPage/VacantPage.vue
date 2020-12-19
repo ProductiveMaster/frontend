@@ -1,50 +1,72 @@
 <template>
   <div class="VacantePage">
-    <h1>Mid-Level Full Stack Developer</h1>
+    <h1>{{ vacant.titleOffer }}</h1>
+    <ApplyVacant :vacant="vacant" />
+
     <div class="section metadata">
-      <span>Mono</span>
-      <a href="https://www.monoban.co/">https://www.monoban.co/</a>
+      <span>{{ vacant.companyName }}</span>
     </div>
     <div class="section description">
       <h2>Descripcion de la empresa</h2>
       <p>
-        Mono es una startup colombiana. Estamos creando una banca digital para
-        empresas en Colombia, somos un equipo con gran experiencia en fintech.
-        Esta es una de nuestras primeras contrataciones. Serás la segunda
-        persona que entra al equipo y trabajarás codo a codo con experimentados
-        fundadores (ex-YC Founder, ex-Nubank). Construiremos juntos el futuro de
-        la banca para PYMEs de Latinoamérica.
+        {{ vacant.description }}
       </p>
     </div>
     <div class="section requeriments">
       <h2>Requisitos Tecnicos</h2>
       <p>
-        1-2 años trabajando en ambientes de desarrollo. Vamos a usar Elixir +
-        Phoenix LiveView. No es requisito saber de ninguno. El hambre/velocidad
-        de aprender es mucho más valorada.
+        {{ vacant.offerRequirements }}
       </p>
     </div>
     <div class="section responsabilities">
       <h2>Responsabilidades</h2>
       <p>
-        Junto con el equipo de fundadores, desarrollar el back del producto de
-        banking. Trabajará directamente con el CTO y CPO.
+        {{ vacant.responsabilities }}
       </p>
     </div>
     <div class="section salary">
       <h2>Rango Salarial</h2>
-      <p>USD $1.500 - $2.500</p>
+      <p>{{ vacant.salaryFrom }} - {{ vacant.salaryTo }} USD</p>
     </div>
     <div class="section category">
       <h2>Categoría</h2>
-      <p>Remoto</p>
+      <p>{{ vacant.category }}</p>
     </div>
-    <button class="button">Aplicar</button>
+
+    <div class="section category">
+      <h2>Modalidad</h2>
+      <p>{{ vacant.isRemote }}</p>
+    </div>
+
+    <div v-if="!vacant.isRemote" class="section category">
+      <h2>Ubicación</h2>
+      <p>{{ vacant.country }} - {{ vacant.city }}</p>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import api from "@/services/api";
+
+import ApplyVacant from "@/components/ApplyVacant";
+
+export default {
+  components: { ApplyVacant },
+  data() {
+    return {
+      vacant: {},
+    };
+  },
+  methods: {
+    async getVacant() {
+      const vacantQuery = await api.get("jobOffers/" + this.$route.params.id);
+      this.vacant = vacantQuery.data.body;
+    },
+  },
+  async mounted() {
+    await this.getVacant();
+  },
+};
 </script>
 
 <style lang="scss">
@@ -53,9 +75,6 @@ export default {};
   h2 {
     color: #95ca3e;
     margin-bottom: 5px;
-  }
-  .button {
-    background: #f97308;
   }
 }
 .metadata {

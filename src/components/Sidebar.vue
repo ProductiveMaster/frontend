@@ -9,14 +9,21 @@
         {{ user.name }} {{ user.lastname }}
       </p>
     </div>
-    <router-link v-for="route in routes" :key="route.path" :to="route.path">
-      <div
-        class="sidebarOption"
-        :class="{ active: $route.path.includes(route.path) }"
+
+    <template v-for="route in routes">
+      <router-link
+        v-if="(route.admin && user.type == 'admin') || !route.admin"
+        :key="route.path"
+        :to="route.path"
       >
-        <p class="light--text">{{ route.name }}</p>
-      </div>
-    </router-link>
+        <div
+          class="sidebarOption"
+          :class="{ active: $route.path.includes(route.path) }"
+        >
+          <p class="light--text">{{ route.name }}</p>
+        </div>
+      </router-link>
+    </template>
 
     <div class="tips card secondary--bg">
       <p>
@@ -34,9 +41,9 @@ export default {
     return {
       routes: [
         // { path: "/home/perfil", name: "Perfil" },
-        { path: "/home/usuarios", name: "Usuarios" },
-        { path: "/home/vacantes", name: "Vacantes" },
-        { path: "/home/aplicaciones", name: "Aplicaciones" },
+        { path: "/home/usuarios", name: "Usuarios", admin: true },
+        { path: "/home/vacantes", name: "Vacantes", admin: false },
+        { path: "/home/aplicaciones", name: "Aplicaciones", admin: false },
       ],
     };
   },
@@ -47,9 +54,8 @@ export default {
   methods: {
     selectedTip() {
       const randomTop = () => {
-        tips;
-
-        return;
+        var item = tips[Math.floor(Math.random() * tips.length)];
+        return item;
       };
       return randomTop();
     },
@@ -100,12 +106,12 @@ export default {
   }
 }
 
-@media (max-width: 900px) {
-  .sidebar {
-    left: -300px;
-    transition: 0.5s;
-  }
-}
+// @media (max-width: 900px) {
+//   .sidebar {
+//     left: -300px;
+//     transition: 0.5s;
+//   }
+// }
 
 .person-icon {
   width: 30px;

@@ -31,7 +31,7 @@ import VacantItem from "./components/VacantItem";
 import Categories from "./components/Categories";
 import SearchBar from "./components/SearchBar";
 import Modal from "@/components/Modal";
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 import api from "@/services/api";
 
@@ -53,14 +53,16 @@ export default {
     ...mapState(["user"]),
   },
   methods: {
+    ...mapActions(["getApply"]),
     async getVacantsMethod() {
       const vacantsQuery = await api.get("jobOffers");
 
-      this.vacants = vacantsQuery.data.body;
+      this.vacants = vacantsQuery.data.body.offers;
     },
   },
   async mounted() {
     await this.getVacantsMethod();
+    await this.getApply();
   },
 };
 </script>

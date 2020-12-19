@@ -57,6 +57,8 @@ export default {};
     color: #000;
     text-decoration: none;
   }
+
+  cursor: pointer;
 }
 
 .item1 {

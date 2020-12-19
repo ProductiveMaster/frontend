@@ -102,6 +102,8 @@
             <select required v-model="category" name="select" class="input">
               <option value="Frontend" selected>Frontend</option>
               <option value="Backend">Backend</option>
+              <option value="DevOps">DevOps</option>
+              <option value="Full Stack">Full Stack</option>
               <option value="Data Science">Data Science</option>
               <option value="UI/UX">UI/UX</option>
             </select>
@@ -124,6 +126,17 @@
               class="input"
               type="date"
               placeholder="2020/12/20"
+            />
+          </p>
+          <p>
+            <label>Habilidades</label>
+
+            <input
+              v-model="skills"
+              required
+              class="input"
+              placeholder="Habilidades (separadas por comas)"
+              type="text"
             />
           </p>
           <p class="full-width">
@@ -155,6 +168,7 @@ export default {
       category: "",
       offerLevel: "",
       dueDate: "",
+      skills: "",
     };
   },
   methods: {
@@ -173,6 +187,7 @@ export default {
         category: this.category,
         offerLevel: this.offerLevel,
         dueDate: this.dueDate,
+        skills: this.skills.split(","),
       });
 
       if (vacantQuery.data.error) {

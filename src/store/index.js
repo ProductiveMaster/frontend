@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {},
-    usersList: []
+    usersList: [],
+    apply: []
   },
   mutations: {
     updateState(state, {
@@ -118,7 +119,6 @@ export default new Vuex.Store({
 
       const users = await api.get('user')
 
-      console.log(users.data.body);
       commit('updateState', {
         prop: 'usersList',
         value: users.data.body
@@ -134,11 +134,9 @@ export default new Vuex.Store({
         const id = user._id
         delete user.__v
         delete user._id
-        const updateQuery = await api.put('user/' + id,
+        await api.put('user/' + id,
           user
         )
-
-        console.log(updateQuery);
 
       } catch (error) {
         if (error.response && error.response.data.message) {
@@ -154,6 +152,16 @@ export default new Vuex.Store({
         }
       }
 
+    },
+
+    async getApply({
+      commit
+    }) {
+      const applicationsQuery = await api.get("jobApplications");
+      commit('updateState', {
+        prop: 'apply',
+        value: applicationsQuery.data.body
+      })
     }
   },
   modules: {}
