@@ -26,6 +26,7 @@
       </a>
     </template>
 
+    <p class="ProTip">Pro Tip</p>
     <div class="tips card secondary--bg">
       <p>
         {{ selectedTip() }}
@@ -138,7 +139,10 @@ export default {
     }
   }
 }
-
+  .ProTip {
+    font-size: 1.3em;
+    margin: 10px 0;
+  }
 // @media (max-width: 900px) {
 //   .sidebar {
 //     left: -300px;

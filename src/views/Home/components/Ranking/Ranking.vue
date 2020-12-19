@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="RankingTitle">Ranking</h1>
     <div
       v-for="(user, index) in users"
       :key="user._id"
@@ -92,5 +93,9 @@ export default {
   vertical-align: top;
   display: inline-block;
   height: 170px;
+}
+.RankingTitle{
+  font-size: 1.5em;
+  margin: 10px 0;
 }
 </style>

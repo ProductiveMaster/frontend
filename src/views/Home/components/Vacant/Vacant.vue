@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="VacantesTitle">Vacantes</h1>
     <SearchBar
       :category="category"
       @updateVacants="
@@ -101,5 +102,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.VacantesTitle {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
 </style>

@@ -7,11 +7,11 @@
       <a @click="$emit('updateCategory', 'Backend')">
         <div class="item item2">Backend</div>
       </a>
-      <a @click="$emit('updateCategory', 'DevOps')">
-        <div class="item item4">DevOps</div>
-      </a>
       <a @click="$emit('updateCategory', 'Full Stack')">
         <div class="item item3">Full Stack</div>
+      </a>
+      <a @click="$emit('updateCategory', 'DevOps')">
+        <div class="item item4">DevOps</div>
       </a>
       <a @click="$emit('updateCategory', 'Data Science')">
         <div class="item item5">Data Science</div>
@@ -53,8 +53,8 @@ export default {};
   font-weight: bold;
   display: flex;
   align-items: center;
+  color: #000;
   a {
-    color: #000;
     text-decoration: none;
   }
 
@@ -74,7 +74,7 @@ export default {};
   background: #f97308;
 }
 .item5 {
-  background: #8fe160;
+  background: #ff6363;
 }
 .item6 {
   background: #bba1ff;

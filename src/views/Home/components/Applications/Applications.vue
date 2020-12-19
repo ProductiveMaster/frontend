@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="Aplicaciones">
+    <h1>Aplicaciones</h1>
     <ApplicationItem
       :application="application"
       v-for="application in applyFiltered"
@@ -40,5 +41,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  .Aplicaciones {
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  }
 </style>
