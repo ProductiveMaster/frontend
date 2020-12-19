@@ -1,5 +1,8 @@
 <template>
   <div>
+    <pre>
+      {{ user }}
+    </pre>
     <SearchBar />
     <Categories />
     <VacantItem />
@@ -19,6 +22,7 @@ import VacantItem from "./components/VacantItem";
 import Categories from "./components/Categories";
 import SearchBar from "./components/SearchBar";
 import Modal from "@/components/Modal";
+import { mapState } from "vuex";
 export default {
   components: {
     Modal,
@@ -31,6 +35,9 @@ export default {
     return {
       showCreateVacant: false,
     };
+  },
+  computed: {
+    ...mapState(["user"]),
   },
 };
 </script>
