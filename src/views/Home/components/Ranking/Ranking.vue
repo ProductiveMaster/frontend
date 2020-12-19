@@ -4,7 +4,7 @@
     <div
       v-for="(user, index) in users"
       :key="user._id"
-      class="padding-1 inline-block"
+      class="padding-1 inline-block rankin-item-div"
     >
       <div class="card padding-1 rankin-item">
         <div class="text-big">
@@ -82,7 +82,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .text-big {
   font-size: 30px;
   text-align: center;
@@ -93,9 +93,20 @@ export default {
   vertical-align: top;
   display: inline-block;
   height: 170px;
+  text-align: center;
 }
-.RankingTitle{
+.RankingTitle {
   font-size: 1.5em;
   margin: 10px 0;
+}
+
+@media (max-width: 900px) {
+  .rankin-item-div {
+    display: block;
+    width: 100%;
+    .rankin-item {
+      width: 100%;
+    }
+  }
 }
 </style>
