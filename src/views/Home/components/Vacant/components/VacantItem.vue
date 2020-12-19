@@ -27,7 +27,12 @@
     </table>
 
     <div class="buttons">
+      <router-link to="/home/vacante/id">
+        <button class="button clear">Ver Vacante Completa</button>
+      </router-link>
+
       <button class="button clear">Practicar</button>
+
       <button class="button">Aplicar</button>
     </div>
   </div>

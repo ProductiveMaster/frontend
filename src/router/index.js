@@ -10,6 +10,7 @@ import Home from "../views/Home/Home"
 import Vacant from "../views/Home/components/Vacant/Vacant"
 import Applications from "../views/Home/components/Applications/Applications"
 import Users from "../views/Home/components/Users/Users"
+import VacantPage from "../views/Home/components/VacantPage/VacantPage"
 
 
 Vue.use(VueRouter);
@@ -42,6 +43,10 @@ const routes = [{
       {
         path: 'usuarios',
         component: Users,
+      },
+      {
+        path: 'vacante/:id',
+        component: VacantPage,
       }
     ]
   },
