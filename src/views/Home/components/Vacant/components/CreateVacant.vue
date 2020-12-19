@@ -5,7 +5,7 @@
       <div class="form">
         <form @submit.prevent="createVacant">
           <div>
-            <label>Nombre del puesto</label>
+            <label>Ej. Nombre del puesto</label>
             <input
               required
               v-model="titleOffer"
@@ -21,7 +21,7 @@
               v-model="companyName"
               class="input"
               type="text"
-              placeholder="Globant"
+              placeholder="Nombre de la empresa"
             />
           </p>
           <p class="full-width">
@@ -33,7 +33,6 @@
               name=""
               cols="30"
               rows="7"
-              placeholder="Globant es una compañia..."
             ></textarea>
           </p>
           <p class="full-width">
@@ -45,7 +44,7 @@
               name=""
               cols="30"
               rows="7"
-              placeholder="1-2 años trabajando en..."
+              placeholder="Ej. 1-2 años trabajando en..."
             ></textarea>
           </p>
           <p class="full-width">
@@ -57,7 +56,7 @@
               name=""
               cols="30"
               rows="7"
-              placeholder="Crear y mantener..."
+              placeholder="Ej. Crear y mantener..."
             ></textarea>
           </p>
           <p>
@@ -67,7 +66,7 @@
               v-model="salary"
               class="input"
               type="text"
-              placeholder="1000 - 1500"
+              placeholder="Ej. 1000 - 1500"
             />
           </p>
           <p>
@@ -84,7 +83,7 @@
               v-model="country"
               class="input"
               type="text"
-              placeholder="México"
+              placeholder="Ej. México"
             />
           </p>
           <p>
@@ -94,7 +93,7 @@
               v-model="city"
               class="input"
               type="text"
-              placeholder="CDMX"
+              placeholder="Ej. CDMX"
             />
           </p>
           <p>
@@ -125,7 +124,7 @@
               v-model="dueDate"
               class="input"
               type="date"
-              placeholder="2020/12/20"
+              placeholder="Ej. 2020/12/20"
             />
           </p>
           <p>
@@ -135,12 +134,12 @@
               v-model="skills"
               required
               class="input"
-              placeholder="Habilidades (separadas por comas)"
+              placeholder=" (separadas por comas)"
               type="text"
             />
           </p>
           <p class="full-width">
-            <button type="submit" class="button">Send</button>
+            <button type="submit" class="button">Crear Vacante</button>
           </p>
         </form>
       </div>

@@ -27,9 +27,13 @@
         <button class="button clear">Ver Vacante</button>
       </router-link>
       <span class="padding-1">
-        <button class="button">Actualizar</button>
+        <button @click="editModal = true" class="button">Actualizar</button>
       </span>
     </div>
+
+    <Modal v-if="editModal" @close="editModal = false">
+      <ApplicationEdit />
+    </Modal>
     <!-- <pre>
       {{ application }}
     </pre> -->
@@ -37,9 +41,20 @@
 </template>
 
 <script>
+import Modal from "@/components/Modal";
+import ApplicationEdit from "./ApplicationEdit";
 export default {
   props: {
     application: Object,
+  },
+  components: {
+    Modal,
+    ApplicationEdit,
+  },
+  data() {
+    return {
+      editModal: false,
+    };
   },
 };
 </script>
