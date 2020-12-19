@@ -8,6 +8,7 @@ import Auth from '../views/Auth/Auth';
 
 import Home from "../views/Home/Home"
 import Vacant from "../views/Home/components/Vacant/Vacant"
+import Applications from "../views/Home/components/Applications/Applications"
 
 
 Vue.use(VueRouter);
@@ -30,9 +31,14 @@ const routes = [{
     path: '/home',
     component: Home,
     children: [{
-      path: 'vacantes',
-      component: Vacant,
-    }]
+        path: 'vacantes',
+        component: Vacant,
+      },
+      {
+        path: 'aplicaciones',
+        component: Applications,
+      }
+    ]
   },
 ];
 
