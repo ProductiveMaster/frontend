@@ -18,27 +18,12 @@
       </div>
     </router-link>
 
-    <!-- 
-    <div class="sidebarOption active">
-      <a href="#">
-        <p class="light--text">Perfil</p>
-      </a>
+    
+    <div class="tips card secondary--bg">
+      <p>
+        Nunca pero nunca te rindas, es duro el proceso de selección ya que recibirás muchos 'no' pero es importante no perder el foco de tus metas e intenta apuntar tan alto como puedan.
+      </p>
     </div>
-    <div class="sidebarOption">
-      <a href="#">
-        <p class="light--text">Usuarios</p>
-      </a>
-    </div>
-    <div class="sidebarOption">
-      <a href="#">
-        <p class="light--text">Vacantes</p>
-      </a>
-    </div>
-    <div class="sidebarOption">
-      <a href="#">
-        <p class="light--text">Aplicaciones</p>
-      </a>
-    </div> -->
   </section>
 </template>
 
@@ -69,6 +54,7 @@ export default {
   left: 0;
   height: calc(100vh - 60px);
   transition: 0.5s;
+  padding: 0 1em;
 
   .sidebarOption {
     padding: 10px;
@@ -93,6 +79,13 @@ export default {
   .sidebarOption.active {
     background: rgba(255, 255, 255, 0.2);
     transition: 0.2s;
+  }
+  .tips {
+    margin-top: 1em;
+    height: auto;
+    p {
+      font-size: 1.2em;
+    }
   }
 }
 
