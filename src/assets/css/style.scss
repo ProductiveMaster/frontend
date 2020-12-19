@@ -1,5 +1,9 @@
-@import './components/button.scss';
 @import './components/colors.scss';
+
+@import './components/button.scss';
+@import './components/card.scss';
+@import './components/input.scss';
+
 
 @font-face {
   font-family: Lato;
@@ -11,9 +15,28 @@ html {
 }
 
 .container-ui {
-  margin: 0 15% !important
+  margin: 0 15% !important;
+  padding-top: 5%;
+}
+
+@media (max-width: 600px) {
+
+  .container-ui {
+    margin: 0 5% !important;
+    padding-top: 5%;
+  }
+
 }
 
 .text-center {
   text-align: center;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+a {
+  color: white;
+  text-decoration: white
 }
