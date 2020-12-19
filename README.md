@@ -5,6 +5,7 @@
 ## Team
 
 - Emiliano Pacheco (emipmttt@gmail.com)
+- Emiliano Pacheco (emipmttt@gmail.com)
 
 ## Project setup
 ```
