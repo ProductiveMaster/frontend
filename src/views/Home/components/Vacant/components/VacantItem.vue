@@ -24,7 +24,7 @@
         <br />
         <div class="level-job">
           {{
-            average > vacant.offerLevel
+            average >= vacant.offerLevel
               ? "Estás listo Para esta vacante!"
               : vacant.offerLevel
           }}
