@@ -4,6 +4,7 @@
       <p class="light--text">
         <img
           class="person-icon"
+          alt="user icon"
           :src="require('@/assets/img/icons/person.svg')"
         />
         {{ user.name }} {{ user.lastname }} <br />

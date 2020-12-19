@@ -1,17 +1,19 @@
-$primary: #95CA3E;
-$secondary: #002B53;
+$primary: #95ca3e;
+$secondary: #002b53;
 $tertiary: #003566;
 $clear-text: #4778a5;
 $light: #fff;
+$dark: #000;
 
-$colors: ('primary': $primary,
+$colors: (
+  'primary': $primary,
   'secondary': $secondary,
   'tertiary': $tertiary,
   'light': $light,
+  'dark': $dark,
 );
 
-@each $colorName,
-$colorValue in $colors {
+@each $colorName, $colorValue in $colors {
   .#{$colorName}--bg {
     background: $colorValue;
   }

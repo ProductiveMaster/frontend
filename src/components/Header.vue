@@ -11,6 +11,7 @@
       <img
         @click="logout"
         class="exit-button"
+        alt="logout"
         :src="require('@/assets/img/icons/exit.svg')"
       />
     </div>
