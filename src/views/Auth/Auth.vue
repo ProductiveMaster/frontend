@@ -53,10 +53,15 @@
             placeholder="Correo Electrónico"
           />
 
-          <select v-model="gender" required class="input" placeholder="Genero">
-            <option value="Indefinido">Seleccionar</option>
-            <option value="Mujer">Mujer</option>
-            <option value="Hombre">Hombre</option>
+          <select
+            v-model="gender"
+            required
+            class="input"
+            placeholder="Selecciona tu genero"
+          >
+            <option value="Indefinido">Selecciona tu genero</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
             <option value="Otro">Otro</option>
           </select>
 
