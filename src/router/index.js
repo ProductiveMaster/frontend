@@ -1,28 +1,36 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Main from '../views/Main/Main.vue'
-import Auth from '../views/Auth/Auth'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Main from '../views/Main/Main.vue';
+import Auth from '../views/Auth/Auth';
+import Header from '../components/Header.vue';
+import Sidebar from '../components/Sidebar.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const routes = [{
+const routes = [
+  {
     path: '/',
-    component: Main
+    component: Main,
   },
   {
-    path: "/iniciar-sesion",
-    name: "signin",
-    component: Auth
+    path: '/iniciar-sesion',
+    name: 'signin',
+    component: Auth,
   },
   {
-    path: "/registro",
-    name: "signup",
-    component: Auth
-  }
-]
+    path: '/registro',
+    name: 'signup',
+    component: Auth,
+  },
+  {
+    path: '/prueba',
+    name: 'prueba',
+    component: Sidebar,
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
