@@ -22,7 +22,13 @@
       <div class="inline-block padding-1">
         <strong>Nivel</strong>
         <br />
-        <span> {{ vacant.offerLevel }} </span>
+        <div class="level-job">
+          {{
+            average > vacant.offerLevel
+              ? "Estás listo Para esta vacante!"
+              : vacant.offerLevel
+          }}
+        </div>
       </div>
       <div class="inline-block padding-1">
         <strong>Modalidad</strong>
@@ -53,7 +59,31 @@ export default {
     ApplyVacant,
   },
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user", "apply"]),
+    average() {
+      const applys = this.apply.filter((apply) => {
+        return apply.studentId._id == this.user._id;
+      });
+
+      var average = 0;
+      var totalScore = 0;
+      var scoresLength = 0;
+
+      console.log(applys);
+
+      applys.forEach((element) => {
+        if (element.qualification) {
+          totalScore += element.qualification;
+          scoresLength++;
+        }
+      });
+
+      if (totalScore && scoresLength) {
+        average = totalScore / scoresLength;
+      }
+
+      return average;
+    },
   },
 };
 </script>
@@ -95,5 +125,14 @@ export default {
   table {
     display: block;
   }
+}
+
+.level-job {
+  background: gold;
+  color: #333;
+  font-weight: bold;
+  padding: 5px;
+  display: inline-block;
+  border-radius: 3px;
 }
 </style>

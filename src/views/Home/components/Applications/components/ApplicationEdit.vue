@@ -1,7 +1,7 @@
 <template>
   <div class="card padding-2">
     <h1>Actualizar Aplicación</h1>
-    <h2>{{ application.type }}</h2>
+    <h2>{{ application.type == "apply" ? "Aplicación" : "Simulacro" }}</h2>
 
     <form @submit.prevent="updateApplication" v-if="user.type == 'admin'">
       <textarea

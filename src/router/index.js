@@ -11,6 +11,7 @@ import Vacant from "../views/Home/components/Vacant/Vacant"
 import Applications from "../views/Home/components/Applications/Applications"
 import Users from "../views/Home/components/Users/Users"
 import VacantPage from "../views/Home/components/VacantPage/VacantPage"
+import Ranking from "../views/Home/components/Ranking/Ranking"
 
 
 Vue.use(VueRouter);
@@ -47,6 +48,10 @@ const routes = [{
       {
         path: 'vacante/:id',
         component: VacantPage,
+      },
+      {
+        path: 'ranking',
+        component: Ranking,
       }
     ]
   },

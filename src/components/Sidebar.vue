@@ -6,15 +6,16 @@
           class="person-icon"
           :src="require('@/assets/img/icons/person.svg')"
         />
-        {{ user.name }} {{ user.lastname }}
+        {{ user.name }} {{ user.lastname }} <br />
+        <strong> Nivel {{ average }} </strong>
       </p>
     </div>
 
     <template v-for="route in routes">
-      <router-link
+      <a
         v-if="(route.admin && user.type == 'admin') || !route.admin"
         :key="route.path"
-        :to="route.path"
+        @click="closeMenu(route.path)"
       >
         <div
           class="sidebarOption"
@@ -22,7 +23,7 @@
         >
           <p class="light--text">{{ route.name }}</p>
         </div>
-      </router-link>
+      </a>
     </template>
 
     <div class="tips card secondary--bg">
@@ -41,6 +42,7 @@ export default {
     return {
       routes: [
         // { path: "/home/perfil", name: "Perfil" },
+        { path: "/home/Ranking", name: "Ranking", admin: false },
         { path: "/home/usuarios", name: "Usuarios", admin: true },
         { path: "/home/vacantes", name: "Vacantes", admin: false },
         { path: "/home/aplicaciones", name: "Aplicaciones", admin: false },
@@ -48,7 +50,31 @@ export default {
     };
   },
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user", "apply"]),
+    average() {
+      const applys = this.apply.filter((apply) => {
+        return apply.studentId._id == this.user._id;
+      });
+
+      var average = 0;
+      var totalScore = 0;
+      var scoresLength = 0;
+
+      console.log(applys);
+
+      applys.forEach((element) => {
+        if (element.qualification) {
+          totalScore += element.qualification;
+          scoresLength++;
+        }
+      });
+
+      if (totalScore && scoresLength) {
+        average = totalScore / scoresLength;
+      }
+
+      return average;
+    },
   },
 
   methods: {
@@ -58,6 +84,13 @@ export default {
         return item;
       };
       return randomTop();
+    },
+    closeMenu(path) {
+      this.$router.push(path);
+      var sidebar = document.querySelector(".sidebar");
+      if (window.innerWidth < 900) {
+        sidebar.style.left = "-300px";
+      }
     },
   },
 };
