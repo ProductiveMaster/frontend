@@ -40,7 +40,6 @@ export default {
 
     aplied() {
       return this.apply.filter((vacantAplied) => {
-        console.log(vacantAplied);
         return (
           vacantAplied.jobId._id == this.vacant._id &&
           vacantAplied.studentId._id == this.user._id &&
