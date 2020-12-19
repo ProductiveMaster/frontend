@@ -2,7 +2,7 @@
   <div>
     <ApplicationItem
       :application="application"
-      v-for="application in apply"
+      v-for="application in applyFiltered"
       :key="application._id"
     />
   </div>
@@ -19,7 +19,17 @@ export default {
     ApplicationItem,
   },
   computed: {
-    ...mapState(["apply"]),
+    ...mapState(["apply", "user"]),
+    applyFiltered() {
+      if (this.user.type == "admin") {
+        return this.apply;
+      } else if (this.user.type == "master") {
+        return this.apply.filter((app) => {
+          console.log(app.studentId._id, this.user._id);
+          return app.studentId._id == this.user._id;
+        });
+      }
+    },
   },
   methods: {
     ...mapActions(["getApply"]),

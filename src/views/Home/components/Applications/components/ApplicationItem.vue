@@ -18,6 +18,26 @@
       <br />
       <span>{{ application.studentId.skills.join(",") }}</span>
     </div>
+
+    <div class="inline-block padding-1">
+      <strong> Resultados </strong>
+      <br />
+      <span>Calificación: {{ application.qualification }}</span>
+      <br />
+      <span>Salario: {{ application.salary }}</span>
+    </div>
+
+    <p>
+      TPCoach Comentarios:
+      <br />
+      {{ application.tpCoachComments }}
+    </p>
+    <br />
+    <p>
+      Master Comentarios:
+      <br />
+      {{ application.tpCoachComments }}
+    </p>
     <br />
     <div class="right-text">
       <router-link
@@ -32,7 +52,7 @@
     </div>
 
     <Modal v-if="editModal" @close="editModal = false">
-      <ApplicationEdit />
+      <ApplicationEdit :application="application" />
     </Modal>
     <!-- <pre>
       {{ application }}

@@ -29,6 +29,11 @@
         <br />
         <span> {{ vacant.isRemote ? "Remoto" : "Presencial" }} </span>
       </div>
+      <div class="inline-block padding-1">
+        <strong>Skills</strong>
+        <br />
+        <span> {{ vacant.skills.join(",") }} </span>
+      </div>
     </div>
 
     <ApplyVacant

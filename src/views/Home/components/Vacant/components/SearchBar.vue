@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="searchMethod" class="SearchBar">
-    <button @click="$emit('getVacants')" type="submit" class="button close">
+    <button @click="$emit('getVacants')" type="button" class="button close">
       x
     </button>
 
