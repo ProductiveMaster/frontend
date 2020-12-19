@@ -4,6 +4,7 @@
       <div class="card text-center login-content">
         <img class="logo" :src="require('@/assets/logo.png')" />
         <h1>{{ issignin ? "Iniciar Sesión" : "Regístrate" }}</h1>
+        <p>Para acceder a la plataforma</p>
 
         <form v-if="issignin">
           <input
