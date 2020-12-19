@@ -3,22 +3,32 @@
     <section>
       <h1>Completa el formulario para crear una vacante</h1>
       <div class="form">
-        <form action="">
+        <form @submit.prevent="createVacant">
           <div>
-            <label for="">Nombre del puesto</label>
+            <label>Nombre del puesto</label>
             <input
+              required
+              v-model="titleOffer"
               class="input"
               type="text"
               placeholder="Full Satck Developer"
             />
           </div>
           <p>
-            <label for="">Compañia</label>
-            <input class="input" type="text" placeholder="Globant" />
+            <label>Compañía</label>
+            <input
+              required
+              v-model="companyName"
+              class="input"
+              type="text"
+              placeholder="Globant"
+            />
           </p>
           <p class="full-width">
-            <label for="">Descripcion de la compañia</label>
+            <label>Descripcion de la compañia</label>
             <textarea
+              required
+              v-model="description"
               class="input"
               name=""
               id=""
@@ -28,8 +38,10 @@
             ></textarea>
           </p>
           <p class="full-width">
-            <label for="">Requisitos tecnicos</label>
+            <label>Requisitos tecnicos</label>
             <textarea
+              required
+              v-model="offerRequirements"
               class="input"
               name=""
               id=""
@@ -39,8 +51,10 @@
             ></textarea>
           </p>
           <p class="full-width">
-            <label for="">Responsabilidades</label>
+            <label>Responsabilidades</label>
             <textarea
+              required
+              v-model="responsabilities"
               class="input"
               name=""
               id=""
@@ -50,46 +64,73 @@
             ></textarea>
           </p>
           <p>
-            <label for="">Rango salarial</label>
-            <input class="input" type="number" placeholder="1000 - 1500 USD" />
+            <label>Rango salarial (USD)</label>
+            <input
+              required
+              v-model="salary"
+              class="input"
+              type="text"
+              placeholder="1000 - 1500"
+            />
           </p>
           <p>
-            <label for="">Modalidad de trabajo</label>
-            <select name="select" class="input">
-              <option value="Remoto" selected>Remoto</option>
-              <option value="Presencial">Presensial</option>
-              <option value="Mixto">Mixto</option>
+            <label>Modalidad de trabajo</label>
+            <select required v-model="isRemote" name="select" class="input">
+              <option :value="true" selected>Remoto</option>
+              <option :value="false">Presencial</option>
             </select>
           </p>
           <p>
-            <label for="">País</label>
-            <input class="input" type="text" placeholder="México" />
+            <label>País</label>
+            <input
+              required
+              v-model="country"
+              class="input"
+              type="text"
+              placeholder="México"
+            />
           </p>
           <p>
-            <label for="">Ciudad</label>
-            <input class="input" type="text" placeholder="CDMX" />
+            <label>Ciudad</label>
+            <input
+              required
+              v-model="city"
+              class="input"
+              type="text"
+              placeholder="CDMX"
+            />
           </p>
           <p>
-            <label for="">Categoria</label>
-            <select name="select" class="input">
+            <label>Categoria</label>
+            <select required v-model="category" name="select" class="input">
               <option value="Frontend" selected>Frontend</option>
               <option value="Backend">Backend</option>
-              <option value="Full Stack">Full Stack</option>
-              <option value="DevOps">DevOps</option>
               <option value="Data Science">Data Science</option>
               <option value="UI/UX">UI/UX</option>
             </select>
           </p>
           <p>
-            <label for="">Nivel</label>
-            <input class="input" type="text" placeholder="5" />
+            <label>Nivel</label>
+            <input
+              required
+              v-model="level"
+              class="input"
+              type="number"
+              placeholder="Del 1 al 10"
+            />
           </p>
           <p>
-            <label for="">Fecha de vencimiento</label>
-            <input class="input" type="date" placeholder="2020/12/20" />
+            <label>Fecha de vencimiento</label>
+            <input
+              required
+              v-model="dueDate"
+              class="input"
+              type="date"
+              placeholder="2020/12/20"
+            />
           </p>
           <p class="full-width">
-            <button class="button">Send</button>
+            <button type="submit" class="button">Send</button>
           </p>
         </form>
       </div>
@@ -98,7 +139,49 @@
 </template>
 
 <script>
-export default {};
+import { mapActions } from "vuex";
+
+import api from "@/services/api";
+
+export default {
+  data() {
+    return {
+      titleOffer: "",
+      companyName: "",
+      description: "",
+      offerRequirements: "",
+      responsabilities: "",
+      salary: "",
+      isRemote: true,
+      country: "",
+      city: "",
+      category: "",
+      level: "",
+      dueDate: "",
+    };
+  },
+  methods: {
+    async createVacant() {
+      const vacantQuery = await api.post("jobOffers", {
+        titleOffer: this.titleOffer,
+        companyName: this.companyName,
+        description: this.description,
+        offerRequirements: this.offerRequirements,
+        responsabilities: this.responsabilities,
+        salaryFrom: this.salary.split("-")[0],
+        salaryTo: this.salary.split("-")[1],
+        isRemote: this.isRemoteue,
+        country: this.country,
+        city: this.city,
+        category: this.category,
+        level: this.level,
+        dueDate: this.dueDate,
+      });
+
+      console.log(vacantQuery);
+    },
+  },
+};
 </script>
 
 <style lang="scss">

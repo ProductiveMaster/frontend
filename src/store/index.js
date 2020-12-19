@@ -8,9 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {},
-    usersList: [{
-      name: "Emiliano Pacheco"
-    }]
+    usersList: []
   },
   mutations: {
     updateState(state, {
@@ -87,6 +85,7 @@ export default new Vuex.Store({
           })
 
           localStorage.setItem('productiveUser', JSON.stringify(userQuery.data.body.user))
+          localStorage.setItem('productiveToken', userQuery.data.body.token)
 
           return {
             success: true,
@@ -112,6 +111,50 @@ export default new Vuex.Store({
 
       }
     },
+
+    async getUsers({
+      commit
+    }) {
+
+      const users = await api.get('user')
+
+      console.log(users.data.body);
+      commit('updateState', {
+        prop: 'usersList',
+        value: users.data.body
+      })
+
+    },
+
+    async updateUser({
+      commit
+    }, user) {
+
+      try {
+        const id = user._id
+        delete user.__v
+        delete user._id
+        const updateQuery = await api.put('user/' + id,
+          user
+        )
+
+        console.log(updateQuery);
+
+      } catch (error) {
+        if (error.response && error.response.data.message) {
+          return {
+            success: false,
+            message: error.response.data.message
+          }
+        } else {
+          return {
+            success: false,
+            message: "Ha ocurrido un error inesperado intentalo de nuevo más tarde"
+          }
+        }
+      }
+
+    }
   },
   modules: {}
 })

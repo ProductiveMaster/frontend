@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>Globant</td>
+          <td>{{ vacant.companyName }}</td>
           <td>Full Time</td>
           <td>Globant</td>
           <td>Remoto</td>
@@ -39,7 +39,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    vacant: Object,
+  },
+};
 </script>
 
 <style lang="scss">

@@ -4,7 +4,8 @@ const instance = axios.create({
   baseURL: process.env.VUE_APP_BACKEND,
   timeout: 1000,
   headers: {
-    'X-Custom-Header': 'foobar'
+    'X-Custom-Header': 'foobar',
+    Authorization: `Bearer ${localStorage.getItem('productiveToken')}`
   }
 });
 

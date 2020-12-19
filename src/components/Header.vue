@@ -5,18 +5,26 @@
     </div>
     <!--Boton para coach-->
     <div class="userName">
-      <router-link to="/" class="light--text">
-        <img
-          class="exit-button"
-          :src="require('@/assets/img/icons/exit.svg')"
-          alt=""
-      /></router-link>
+      <img
+        @click="logout"
+        class="exit-button"
+        :src="require('@/assets/img/icons/exit.svg')"
+      />
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    logout() {
+      localStorage.removeItem("productiveUser");
+      localStorage.removeItem("productiveToken");
+      this.$router.push("/");
+      location.reload();
+    },
+  },
+};
 </script>
 
 <style lang="scss">
