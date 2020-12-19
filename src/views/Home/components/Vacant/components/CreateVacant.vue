@@ -1,19 +1,25 @@
 <template>
-  <section>
+  <div class="card card-padding">
+    <section>
       <h1>Completa el formulario para crear una vacante</h1>
       <div class="form">
         <form action="">
           <p>
             <label for="">Nombre del puesto</label>
-            <input type="text" placeholder="Full Satck Developer" />
+            <input
+              class="input"
+              type="text"
+              placeholder="Full Satck Developer"
+            />
           </p>
           <p>
             <label for="">Compañia</label>
-            <input type="text" placeholder="Globant" />
+            <input class="input" type="text" placeholder="Globant" />
           </p>
           <p class="full-width">
             <label for="">Descripcion de la compañia</label>
             <textarea
+              class="input"
               name=""
               id=""
               cols="30"
@@ -24,6 +30,7 @@
           <p class="full-width">
             <label for="">Requisitos tecnicos</label>
             <textarea
+              class="input"
               name=""
               id=""
               cols="30"
@@ -34,6 +41,7 @@
           <p class="full-width">
             <label for="">Responsabilidades</label>
             <textarea
+              class="input"
               name=""
               id=""
               cols="30"
@@ -43,38 +51,39 @@
           </p>
           <p>
             <label for="">Rango salarial</label>
-            <input type="number" placeholder="1000 - 1500 USD" />
+            <input class="input" type="number" placeholder="1000 - 1500 USD" />
           </p>
           <p>
             <label for="">Modalidad de trabajo</label>
-            <input type="text" placeholder="Remoto" />
+            <input class="input" type="text" placeholder="Remoto" />
           </p>
           <p>
             <label for="">Pais</label>
-            <input type="text" placeholder="México" />
+            <input class="input" type="text" placeholder="México" />
           </p>
           <p>
             <label for="">Ciudad</label>
-            <input type="text" placeholder="CDMX" />
+            <input class="input" type="text" placeholder="CDMX" />
           </p>
           <p>
             <label for="">Categoria</label>
-            <input type="text" placeholder="Full Stack" />
+            <input class="input" type="text" placeholder="Full Stack" />
           </p>
           <p>
             <label for="">Nivel</label>
-            <input type="text" placeholder="5" />
+            <input class="input" type="text" placeholder="5" />
           </p>
           <p>
             <label for="">Fecha de vencimiento</label>
-            <input type="date" placeholder="2020/12/20" />
+            <input class="input" type="date" placeholder="2020/12/20" />
           </p>
           <p class="full-width">
-            <button>Send</button>
+            <button class="button">Send</button>
           </p>
         </form>
       </div>
     </section>
+  </div>
 </template>
 
 <script>
@@ -82,20 +91,20 @@ export default {};
 </script>
 
 <style lang="scss">
-  .form {
-    width: 100%;
-  }
+.card-padding {
+  padding: 5%;
+}
+
+.form {
+  width: 100%;
+
   form {
     display: grid;
-    grid-template-columns: 400px 400px;
+    grid-template-columns: 50% 50%;
     grid-gap: 10px;
     place-content: center;
-    & label{
+    & label {
       display: block;
-    }
-    & p input {
-      width: 80%;
-      margin: 0;
     }
   }
   .full-width {
@@ -104,26 +113,18 @@ export default {};
       width: 90%;
     }
   }
-  button,
   input,
   textarea {
     padding: 1em;
   }
-
   button {
-    background: lightgrey;
     width: 100%;
-    border: 0;
-  }
-  button:hover,
-  button:focus {
-    background: gold;
-    outline: 0;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     form {
-      grid-template-columns: 1fr 1fr;
+      display: block;
     }
   }
+}
 </style>

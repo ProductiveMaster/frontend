@@ -22,4 +22,8 @@ export default {};
   align-items: center;
   overflow-y: scroll;
 }
+
+.modal-content {
+  max-height: 90vh;
+}
 </style>
