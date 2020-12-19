@@ -47,13 +47,6 @@ export default {
     },
     async getUsersMethod() {
       const userQuery = await this.getUsers();
-
-      if (userQuery.succes) {
-        this.$toast.open({
-          message: signinQuery.message,
-          type: "success",
-        });
-      }
     },
   },
   async mounted() {

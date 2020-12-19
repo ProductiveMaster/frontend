@@ -1,13 +1,12 @@
 <template>
   <div>
-    <pre>
-      {{ user.type }}
-    </pre>
     <SearchBar />
     <Categories />
-    <VacantItem />
     <Modal v-if="showCreateVacant" @close="showCreateVacant = false">
-      <CreateVacant />
+      <CreateVacant
+        @getVacants="getVacantsMethod"
+        @close="showCreateVacant = false"
+      />
     </Modal>
     <div
       @click="showCreateVacant = true"
@@ -17,7 +16,7 @@
       +
     </div>
     <div>
-      <VacanteItem
+      <VacantItem
         :vacant="vacant"
         v-for="vacant in vacants"
         :key="vacant._id"

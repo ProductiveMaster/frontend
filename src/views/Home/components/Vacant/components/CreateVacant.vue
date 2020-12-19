@@ -31,7 +31,6 @@
               v-model="description"
               class="input"
               name=""
-              id=""
               cols="30"
               rows="7"
               placeholder="Globant es una compañia..."
@@ -44,7 +43,6 @@
               v-model="offerRequirements"
               class="input"
               name=""
-              id=""
               cols="30"
               rows="7"
               placeholder="1-2 años trabajando en..."
@@ -57,7 +55,6 @@
               v-model="responsabilities"
               class="input"
               name=""
-              id=""
               cols="30"
               rows="7"
               placeholder="Crear y mantener..."
@@ -113,7 +110,7 @@
             <label>Nivel</label>
             <input
               required
-              v-model="level"
+              v-model="offerLevel"
               class="input"
               type="number"
               placeholder="Del 1 al 10"
@@ -156,7 +153,7 @@ export default {
       country: "",
       city: "",
       category: "",
-      level: "",
+      offerLevel: "",
       dueDate: "",
     };
   },
@@ -174,11 +171,23 @@ export default {
         country: this.country,
         city: this.city,
         category: this.category,
-        level: this.level,
+        offerLevel: this.offerLevel,
         dueDate: this.dueDate,
       });
 
-      console.log(vacantQuery);
+      if (vacantQuery.data.error) {
+        this.$toast.open({
+          message: vacantQuery.data.message,
+          type: "error",
+        });
+      } else {
+        this.$toast.open({
+          message: "Vacante Añadida Correctamente",
+          type: "success",
+        });
+        this.$emit("getVacants");
+        this.$emit("close");
+      }
     },
   },
 };

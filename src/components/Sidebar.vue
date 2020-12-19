@@ -18,10 +18,9 @@
       </div>
     </router-link>
 
-    
     <div class="tips card secondary--bg">
       <p>
-        Nunca pero nunca te rindas, es duro el proceso de selección ya que recibirás muchos 'no' pero es importante no perder el foco de tus metas e intenta apuntar tan alto como puedan.
+        {{ selectedTip() }}
       </p>
     </div>
   </section>
@@ -29,6 +28,7 @@
 
 <script>
 import { mapState } from "vuex";
+import tips from "./tips";
 export default {
   data() {
     return {
@@ -42,6 +42,17 @@ export default {
   },
   computed: {
     ...mapState(["user"]),
+  },
+
+  methods: {
+    selectedTip() {
+      const randomTop = () => {
+        tips;
+
+        return;
+      };
+      return randomTop();
+    },
   },
 };
 </script>

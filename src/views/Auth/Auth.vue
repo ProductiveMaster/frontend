@@ -167,6 +167,7 @@ export default {
         });
 
         this.$router.push("/home/vacantes");
+        location.reload();
       } else {
         this.$toast.open({
           message: signinQuery.message,

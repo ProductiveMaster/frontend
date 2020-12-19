@@ -1,6 +1,6 @@
 <template>
   <div class="card card-padding">
-    <strong> Frontend Developer </strong>
+    <strong> {{ vacant.titleOffer }} </strong>
     <table class="VacantItem">
       <thead class="items">
         <tr>
@@ -10,24 +10,24 @@
           <th>Nivel</th>
           <th>Modalidad</th>
         </tr>
-        <!-- <span class="job">Frontend Developer</span>
-        <span class="time">Full Time</span>
-        <span class="company">Globant</span>
-        <span class="modality">Remoto</span>
-        <span class="country">Colombia</span> -->
       </thead>
       <tbody>
         <tr>
-          <td>{{ vacant.companyName }}</td>
-          <td>Full Time</td>
-          <td>Globant</td>
-          <td>Remoto</td>
+          <td>
+            {{ vacant.companyName }}
+          </td>
+          <td>{{ vacant.salaryFrom }} - {{ vacant.salaryTo }}</td>
+          <td>{{ vacant.category }}</td>
+          <td>{{ vacant.offerLevel }}</td>
+          <td>
+            {{ vacant.isRemote ? "Remoto" : "Presencial" }}
+          </td>
         </tr>
       </tbody>
     </table>
 
     <div class="buttons">
-      <router-link to="/home/vacante/id">
+      <router-link :to="'/home/vacante/' + vacant._id">
         <button class="button clear">Ver Vacante Completa</button>
       </router-link>
 
@@ -40,15 +40,14 @@
 
 <script>
 export default {
-  props: {
-    vacant: Object,
-  },
+  props: ["vacant"],
 };
 </script>
 
 <style lang="scss">
 .card-padding {
   padding: 2rem;
+  margin-top: 10px;
 }
 
 .VacantItem {
