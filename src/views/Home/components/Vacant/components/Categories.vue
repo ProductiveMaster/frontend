@@ -1,6 +1,5 @@
 <template>
   <div class="CategoriesContainer">
-    <span class="CategoriesContainer--title">Categorias</span>
     <section class="Categories card">
       <div class="item item1">
         <a href="#">Frontend</a>
@@ -29,9 +28,9 @@ export default {};
 </script>
 
 <style lang="scss">
-.CategoriesContainer{
+.CategoriesContainer {
   margin-bottom: 1em;
-  &--title{
+  &--title {
     font-size: 1.5em;
   }
 }
@@ -44,11 +43,11 @@ export default {};
   text-align: center;
   padding: 1em;
   border-radius: 5px;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .item {
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   border: 1px solid white;
   border-radius: 5px;
   font-weight: bold;
@@ -81,7 +80,7 @@ export default {};
 // 1084
 
 // @media (max-width: 750px){
-@media (max-width: 1063px){
+@media (max-width: 1063px) {
   .Categories {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

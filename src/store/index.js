@@ -29,18 +29,36 @@ export default new Vuex.Store({
           userData
         )
 
-        console.log(userQuery);
+        if (userQuery.error) {
 
+          return {
+            success: false,
+            message: userQuery.message
+          }
 
-        commit('updateState', {
-          prop: "user",
-          value: {}
-        })
+        } else {
 
-        return true
+          return {
+            success: true,
+            message: "Ahora puedes iniciar sesión"
+          }
+
+        }
+
       } catch (error) {
-        console.error(error)
-        return false
+
+        if (error.response && error.response.data.message) {
+          return {
+            success: false,
+            message: error.response.data.message
+          }
+        } else {
+          return {
+            success: false,
+            message: "Ha ocurrido un error inesperado intentalo de nuevo más tarde"
+          }
+        }
+
       }
     },
     async signin({
@@ -54,21 +72,44 @@ export default new Vuex.Store({
           }
         })
 
-        console.log(userQuery);
+        if (userQuery.error) {
 
-        if (!userQuery.data.error) {
+          return {
+            success: false,
+            message: userQuery.message
+          }
+
+        } else {
+
           commit('updateState', {
             prop: "user",
             value: userQuery.data.body.user
           })
 
-          return true
+          localStorage.setItem('productiveUser', JSON.stringify(userQuery.data.body.user))
+
+          return {
+            success: true,
+            message: "Bienvenido!"
+          }
+
         }
 
 
       } catch (error) {
-        console.error(error)
-        return false
+
+        if (error.response && error.response.data.message) {
+          return {
+            success: false,
+            message: error.response.data.message
+          }
+        } else {
+          return {
+            success: false,
+            message: "Ha ocurrido un error inesperado intentalo de nuevo más tarde"
+          }
+        }
+
       }
     },
   },

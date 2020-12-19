@@ -1,5 +1,14 @@
 <template>
   <section class="tertiary--bg sidebar">
+    <div class="sidebarOption">
+      <p class="light--text">
+        <img
+          class="person-icon"
+          :src="require('@/assets/img/icons/person.svg')"
+        />
+        {{ user.name }} {{ user.lastname }}
+      </p>
+    </div>
     <router-link v-for="route in routes" :key="route.path" :to="route.path">
       <div
         class="sidebarOption"
@@ -34,6 +43,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -44,6 +54,9 @@ export default {
         { path: "/home/aplicaciones", name: "Aplicaciones" },
       ],
     };
+  },
+  computed: {
+    ...mapState(["user"]),
   },
 };
 </script>
@@ -66,10 +79,13 @@ export default {
     cursor: pointer;
     transition: 0.2s;
     border-radius: 5px;
-    a {
-      text-decoration: none;
-      p {
-        font-size: 1.2em;
+
+    p {
+      display: flex;
+      align-items: center;
+      font-size: 1.2em;
+      img {
+        margin-right: 20px;
       }
     }
   }
@@ -85,5 +101,9 @@ export default {
     left: -300px;
     transition: 0.5s;
   }
+}
+
+.person-icon {
+  width: 30px;
 }
 </style>

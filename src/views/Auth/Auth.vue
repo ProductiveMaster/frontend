@@ -123,7 +123,10 @@ export default {
     ...mapActions(["signup", "signin"]),
     async signupMethod() {
       if (this.password != this.passwordConfirm) {
-        return this.$toast.open("Ambas Contraseñas deben coincidir");
+        return this.$toast.open({
+          message: "Ambas Contraseñas deben coincidir",
+          type: "error",
+        });
       }
 
       const signupQuery = await this.signup({
@@ -137,18 +140,39 @@ export default {
         imgPath: this.imgPath,
       });
 
-      console.log(signupQuery);
+      if (signupQuery.success) {
+        this.$toast.open({
+          message: signupQuery.message,
+          type: "success",
+        });
 
-      // if (!signupQuery.data.data.error) {
-      // this.$toast.open("Bienvenido");
-      // this.$router.push("/home");
+        this.$router.push("/iniciar-sesion");
+      } else {
+        this.$toast.open({
+          message: signupQuery.message,
+          type: "error",
+        });
+      }
     },
     async signinMethod() {
-      const signupQuery = await this.signin({
+      const signinQuery = await this.signin({
         email: this.email,
         password: this.password,
       });
 
+      if (signinQuery.success) {
+        this.$toast.open({
+          message: signinQuery.message,
+          type: "success",
+        });
+
+        this.$router.push("/home/vacantes");
+      } else {
+        this.$toast.open({
+          message: signinQuery.message,
+          type: "error",
+        });
+      }
       // this.$toast.open("Bienvenido");
       // this.$router.push("/home");
     },
