@@ -3,11 +3,8 @@
     <article class="left light--text">
       <img class="logo" src="@/assets/logo.png" alt="Imagen" />
 
-      <h3 class="primary--text">¿Perdido entre las vacantes?</h3>
-      <p>
-        Aquí puedes encontrar la vacante <br />
-        que tanto estabas buscando
-      </p>
+      <h3 class="primary--text">¿No has postulado a vancates?</h3>
+      <p>¡Entra y descubrirás lo fácil que es!</p>
       <router-link to="/registro">
         <button class="button light-shadow">Buscar Vacantes</button>
       </router-link>

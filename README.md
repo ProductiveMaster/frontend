@@ -1,4 +1,10 @@
-# frontend
+# ProductiveMaster
+
+## a project to encourage masters to apply for vacancies
+
+## Team
+
+- Emiliano Pacheco (emipmttt@gmail.com)
 
 ## Project setup
 ```
