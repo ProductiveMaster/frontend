@@ -53,7 +53,10 @@ export default {
   position: fixed;
   width: 300px;
   top: 60px;
+  left: 0;
   height: calc(100vh - 60px);
+  transition: 0.5s;
+
   .sidebarOption {
     padding: 15px 0;
     width: 80%;
@@ -73,6 +76,13 @@ export default {
 
   .sidebarOption.active {
     border-bottom: 2px solid #95ca3e;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    left: -300px;
+    transition: 0.5s;
   }
 }
 </style>

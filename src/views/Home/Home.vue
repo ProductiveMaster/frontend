@@ -24,5 +24,13 @@ export default {
   padding: 5%;
   min-height: calc(100vh - 60px);
   color: white;
+  transition: 0.5s;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    margin: 60px 0 0 0px;
+    transition: 0.5s;
+  }
 }
 </style>
