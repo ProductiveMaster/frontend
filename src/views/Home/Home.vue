@@ -27,7 +27,7 @@ export default {
   transition: 0.5s;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .main-content {
     margin: 60px 0 0 0px;
     transition: 0.5s;

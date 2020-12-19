@@ -6,6 +6,7 @@
     </Modal>
     <div @click="showCreateVacant = true" class="fab">+</div>
     <div>
+      <Categories />
       <VacanteItem />
     </div>
   </div>
@@ -14,13 +15,14 @@
 <script>
 import CreateVacant from "./components/CreateVacant";
 import VacantItem from "./components/VacantItem";
+import Categories from "./components/Categories";
 import Modal from "@/components/Modal";
-import VacanteItem from "./components/VacantItem";
 export default {
   components: {
     Modal,
     CreateVacant,
     VacantItem,
+    Categories,
   },
   data() {
     return {

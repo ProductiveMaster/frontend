@@ -132,7 +132,7 @@ export default {};
     width: 100%;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     form {
       display: block;
     }
